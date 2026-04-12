@@ -1,0 +1,9 @@
+[project]
+name = "mps-pipeline"
+version = "0.1.0"
+description = "Using AI to extract metadata from football videos"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ultralytics>=8.4.37",
+]
