@@ -1,0 +1,25 @@
+# Local override for vendor/CVAT at v2.80.0; use with its official compose file.
+services:
+  traefik:
+    container_name: p1-cvat-proxy
+    ports: !override
+      - "127.0.0.1:8080:8080"
+    environment:
+      TRAEFIK_PROVIDERS_DOCKER_NETWORK: p1-cvat
+      TRAEFIK_PROVIDERS_DOCKER_CONSTRAINTS: 'Label(`com.docker.compose.project`, `p1-cvat`)'
+  cvat_server:
+    environment:
+      ALLOWED_HOSTS: localhost,127.0.0.1,cvat-server,cvat_server
+      NUMPROCS: 1
+  cvat_worker_import:
+    environment:
+      NUMPROCS: 1
+  cvat_worker_export:
+    environment:
+      NUMPROCS: 1
+  cvat_worker_chunks:
+    environment:
+      NUMPROCS: 1
+networks:
+  cvat:
+    name: p1-cvat

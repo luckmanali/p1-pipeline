@@ -1,9 +1,36 @@
 [project]
-name = "mps-pipeline"
+name = "p1-pipeline"
 version = "0.1.0"
-description = "Using AI to extract metadata from football videos"
+description = "Reproducible Player 1 football detection benchmarks"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "av>=19.0.2,<20",
     "ultralytics>=8.4.37",
 ]
+
+[project.optional-dependencies]
+dfine = [
+    "faster-coco-eval>=1.6.6",
+    "tensorboard",
+    "calflops",
+    "transformers",
+    "loguru",
+]
+cvat = [
+    "cvat-sdk==2.80.0",
+]
+
+[dependency-groups]
+dev = [
+    "coverage[toml]>=7.6,<8",
+    "av>=19.0.2,<20",
+    "numpy>=2,<3",
+]
+
+[tool.coverage.run]
+source = ["benchmark", "detectors", "evaluate", "export_frames", "convert_cvat", "match_result", "crop_inference", "export_review_clips"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true

@@ -1,0 +1,121 @@
+{
+  "kind": "reviewed_match_result",
+  "schema_version": 1,
+  "match_id": "match-example",
+  "revision": 1,
+  "run_id": "review-example-1",
+  "producer": {
+    "name": "Player 1 reviewed export",
+    "version": "1"
+  },
+  "review": {
+    "method": "ai_assisted",
+    "reviewer_id": "reviewer-example",
+    "reviewed_at": "2026-10-30T12:00:00Z"
+  },
+  "video": {
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "duration_ms": 180000,
+    "source_start_ms": -500.25
+  },
+  "coverage": {
+    "status": "partial",
+    "reviewed_intervals": [
+      {
+        "start_ms": 0,
+        "end_ms": 60000
+      },
+      {
+        "start_ms": 90000,
+        "end_ms": 120000
+      }
+    ]
+  },
+  "teams": [
+    {
+      "id": "blue",
+      "name": "Blue"
+    },
+    {
+      "id": "red",
+      "name": "Red"
+    }
+  ],
+  "players": [
+    {
+      "id": "player-a",
+      "name": "Alex",
+      "team_id": "blue",
+      "stats": {
+        "goals": 1,
+        "assists": null,
+        "saves": 0
+      }
+    },
+    {
+      "id": "player-b",
+      "name": "Sam",
+      "team_id": "blue",
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "saves": null
+      }
+    },
+    {
+      "id": "player-c",
+      "name": "Sam",
+      "team_id": "red",
+      "stats": {
+        "goals": null,
+        "assists": null,
+        "saves": null
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "goal-1",
+      "revision": 1,
+      "type": "goal",
+      "timestamp_ms": 12000.5,
+      "team_id": "blue",
+      "player_id": "player-a",
+      "own_goal": false
+    },
+    {
+      "id": "goal-2",
+      "revision": 1,
+      "type": "goal",
+      "timestamp_ms": 30000,
+      "team_id": "red",
+      "player_id": null,
+      "own_goal": false
+    },
+    {
+      "id": "goal-3",
+      "revision": 1,
+      "type": "goal",
+      "timestamp_ms": 100000,
+      "team_id": "red",
+      "player_id": "player-a",
+      "own_goal": true
+    }
+  ],
+  "clips": [
+    {
+      "id": "clip-1",
+      "event_id": "goal-1",
+      "start_ms": 10000,
+      "end_ms": 16000,
+      "media_ref": "clips/goal-1.mp4"
+    },
+    {
+      "id": "clip-2",
+      "event_id": "goal-2",
+      "start_ms": 28000,
+      "end_ms": 32000,
+      "media_ref": "clips/goal-2.mp4"
+    }
+  ]
+}
